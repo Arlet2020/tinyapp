@@ -98,6 +98,17 @@ app.listen(PORT, () => {
 });
 
 
+// DELETE /MEMES/:id 
+// POST /memes/:id/delete
+
+// post requests are used to CHANGE/DELETE/UPDATE/CREATE data 
+app.post('/urls/:shortURL/delete', (req, res) => {
+  const urlToDelete = req.params.shortURL;
+  delete urlDatabase[urlToDelete];
+  res.redirect('/urls');
+})
+
+
 
 
 
