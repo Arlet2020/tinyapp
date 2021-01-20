@@ -109,6 +109,14 @@ app.post('/urls/:shortURL/delete', (req, res) => {
 })
 
 
+app.post("/urls/:id", (req, res) => { //must match to front end urls_show, but back end noation for path
+  const shortURL = req.params.id //request info from web site address, line 73 calls the web page
+  const longURL = req.body.longURL //info from front end input
+  console.log("start>>>>>>>>>>", longURL);
+  urlDatabase[shortURL] = longURL //object with key = longURL
+  res.redirect("/urls");  //there is no object to render, using redirect
+});
+
 
 
 
